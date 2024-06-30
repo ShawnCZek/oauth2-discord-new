@@ -145,7 +145,7 @@ class Discord extends AbstractProvider
     }
 
     /**
-     * Return the method to use when revoking the access/refresh token
+     * Return the method to use when revoking the access/refresh token.
      *
      * @return string
      */
@@ -155,7 +155,7 @@ class Discord extends AbstractProvider
     }
 
     /**
-     * Build request options used for revoking an access/refresh token
+     * Build request options used for revoking an access/refresh token.
      *
      * @param  string $method
      * @param  array $params
@@ -167,7 +167,7 @@ class Discord extends AbstractProvider
     }
 
     /**
-     * Return a prepared request for revoking an access/refresh token
+     * Return a prepared request for revoking an access/refresh token.
      *
      * @param  array $params
      * @return RequestInterface
@@ -183,18 +183,18 @@ class Discord extends AbstractProvider
     }
 
     /**
-     * Request a token revocation
+     * Request a token revocation.
      *
-     * Revoking an access/refresh token will invalidate it and will clean up
+     * Revoking an access/refresh token will invalidate it and clean up
      * associated data with the underlying authorization grant.
      *
      * Revoking an access token MAY also invalidate the refresh token based on
-     * the same authorization grant. It actually is the current behavior of the
-     * Discord OAuth2 server. However, this behavior is only optional (according
-     * to the section 2.1, RFC7009) and undocumented and may change.
+     * the same authorization grant. Based on the Discord documentation, it is
+     * the current behavior of the OAuth2 server. However, keep in mind that
+     * this behavior is only optional (according to the section 2.1, RFC7009).
      *
-     * On the other hand, revoking a refresh token will immediately invalidate
-     * all access tokens based on the same authorization grant.
+     * Revoking a refresh token will immediately invalidate all access tokens
+     * based on the same authorization grant.
      *
      * @param  array $options Request parameters
      * @return void
