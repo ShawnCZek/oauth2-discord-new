@@ -163,7 +163,13 @@ class Discord extends AbstractProvider
      */
     protected function getRevokeTokenOptions(string $method, array $params)
     {
-        return $this->optionProvider->getAccessTokenOptions($method, $params);
+        $options = ['headers' => ['content-type' => 'application/x-www-form-urlencoded']];
+
+        if ($method === AbstractProvider::METHOD_POST) {
+            $options['body'] = $this->buildQueryString($params);
+        }
+
+        return $options;
     }
 
     /**
